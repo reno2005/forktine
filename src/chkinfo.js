@@ -23,11 +23,6 @@ export function ChkInfo({onBackButton}){
 
           if (!mediaStream) {
             enableStream();
-          }else{
-            return function cleanup() {
-              mediaStream.getTracks().forEach(track => {
-                track.stop();
-              })};
           }
 
           if (mediaStream && videoRef.current) {
