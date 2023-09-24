@@ -30,8 +30,11 @@ export function ChkInfo({onBackButton}){
           }
 
           return () => {
-            videoRef.current.srcObject = null;
-          }
+            if(mediaStream){
+                mediaStream.getTracks().forEach(track => {
+                  track.stop();
+              });}
+            }
     });
 
     function handleCanPlay() {
