@@ -28,6 +28,10 @@ export function ChkInfo({onBackButton}){
           if (mediaStream && videoRef.current) {
             videoRef.current.srcObject = mediaStream;
           }
+
+          return () => {
+            videoRef.current.srcObject = null;
+          }
     });
 
     function handleCanPlay() {
