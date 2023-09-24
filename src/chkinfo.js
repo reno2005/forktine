@@ -35,7 +35,7 @@ export function ChkInfo({onBackButton}){
     }
 
     function handleCapture(){
-      alert('capture');
+      alert('scanning/recognizing image');
     }
 
  
