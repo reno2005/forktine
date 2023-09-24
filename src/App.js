@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { ChkInfo} from './chkinfo';
+import { HomeComponent } from './home'
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
          <h1>ChekScan</h1>
       </header>
-      <ChkInfo/>
+      <HomeComponent/>
     </div>
   );
 }

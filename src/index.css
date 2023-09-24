@@ -1,10 +1,11 @@
 body {
-  margin: 0;
+  margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 code {
@@ -13,8 +14,76 @@ code {
 }
 
 .video-container{
-  width: 100%;
-  background-color: bisque;
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  background-color: rgb(245, 244, 242);
   min-height: 80vh;
   overflow: hidden;
+}
+
+.video-frame{
+  border: 4px solid #999;
+  border-radius: 4px;
+  padding: 4px;
+  margin: auto;
+  background-color: rgb(95, 93, 93);
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 90%;
+  display: block;
+  overflow: hidden;
+}
+
+.button-panel{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+button{
+  font-size: larger;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+button.primary-btn{
+  background-color: rgb(66, 143, 237);
+  color: white;
+}
+
+button.cancel-btn{
+  background-color: rgb(255, 132, 0);
+  color: white;
+}
+
+.grid-container{
+  padding: 2em;
+  margin-top: 20px;
+  background-color: #999;
+  width: auto;
+  margin:auto;
+}
+table.chk-grid{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+td,th{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+
+th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
 }

@@ -1,9 +1,10 @@
 import React,{ useState, useEffect, useRef } from "react";
 
-export function ChkInfo(){
+export function ChkInfo({onBackButton}){
     const [mediaStream, setMediaStream] = useState(null);
     const videoRef = useRef();
     const [mediaSupported, setMediaSupported] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
 
     useEffect(() => {
         async function enableStream() {
@@ -16,12 +17,17 @@ export function ChkInfo(){
               // Removed for brevity
               //alert(err);
               setMediaSupported(false);
+              setErrorMsg(err.toString());
             }
           }
 
-
           if (!mediaStream) {
             enableStream();
+          }else{
+            return function cleanup() {
+              mediaStream.getTracks().forEach(track => {
+                track.stop();
+              })};
           }
 
           if (mediaStream && videoRef.current) {
@@ -31,12 +37,22 @@ export function ChkInfo(){
 
     function handleCanPlay() {
         videoRef.current.play();
-      }
+    }
 
+    function handleCapture(){
+      alert('capture');
+    }
+
+ 
     return (
         <div className="video-container">
             { !mediaSupported && (<span>No Device Dectected!</span>)}
+            <span>{errorMsg}</span>
             <video className="video-frame" ref={videoRef} onCanPlay={handleCanPlay} autoPlay playsInline muted />
+            <div className="button-panel">
+              <button className="primary-btn" onClick={handleCapture}>Scan Check</button>
+              <button className="cancel-btn" onClick={onBackButton}>Back</button>
+            </div>
         </div>
     );
 }
