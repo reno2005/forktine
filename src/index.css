@@ -34,6 +34,10 @@ code {
   overflow: hidden;
 }
 
+canvas{
+  display: none;
+}
+
 .button-panel{
   display: flex;
   flex-direction: column;
@@ -45,6 +49,11 @@ button{
   padding: 10px;
   border-radius: 4px;
   margin: 4px;
+}
+
+button.disabled{
+  background-color: #999;
+  color: black;
 }
 
 button.primary-btn{
