@@ -12,6 +12,7 @@ export function ChkInfo({ onBackButton, onAddItem }) {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [scanStaus, setScanStatus] = useState('ready'); //state = ready, scanning, checkdetected, checknotdetected
+  const [scanData, setScanData] = useState('');
   const [checkInfo, setCheckInfo] = useState(null);
 
 
@@ -164,6 +165,7 @@ export function ChkInfo({ onBackButton, onAddItem }) {
 
   const processTextData = (textData) => {
     setCheckInfo({ checkno: "34567", amount : 700.00});
+    setScanData(textData);
     return true;
   }
 
@@ -225,6 +227,7 @@ export function ChkInfo({ onBackButton, onAddItem }) {
         {scanStaus === 'checkdetected' &&
           <div className="button-panel">
             <span>Check Dectected</span>
+            <span>{scanData}</span>
             <button className="primary-btn" onClick={closeModal}>Accept</button>
           </div>
         }
